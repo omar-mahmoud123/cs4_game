@@ -9,6 +9,6 @@ public class ContaminationSock extends TransportCell{
 	if (this.effect>0) {
 		this.effect=this.effect*-1;
 	}
-	
+}
 }
 

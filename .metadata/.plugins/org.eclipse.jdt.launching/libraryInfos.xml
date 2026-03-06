@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
     <libraryInfo home="/opt/homebrew/Cellar/openjdk@21/21.0.10/libexec/openjdk.jdk/Contents/Home" version="21.0.10"/>
+    <libraryInfo home="/Users/ahmedmahmoud/Library/Java/JavaVirtualMachines/openjdk-23.0.2/Contents/Home" version="23.0.2"/>
     <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home" version="22.0.2"/>
 </libraryInfos>

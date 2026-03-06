@@ -7,8 +7,8 @@ public class ConveyorBelt extends TransportCell{
 	}
 	
 	if (this.effect<0) {
-		effect=effect*-1;
+		this.effect=effect*-1;
 	}
-	
+}
 }
 
