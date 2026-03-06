@@ -1,9 +1,0 @@
-package game.engine;
-
-public final class Constants {
-	• int BOARD SIZE = 100
-			• int BOARD ROWS = 10
-			• int BOARD COLS = 10
-			• int WINNING POSITION = 99
-			• int STARTING POSITION = 0
-}
