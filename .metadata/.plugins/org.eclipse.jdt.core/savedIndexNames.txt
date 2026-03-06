@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+/Users/mac/Desktop/cs4_game/.metadata/.plugins/org.eclipse.jdt.core
-1865797976.index
-2279383384.index
-384368592.index
