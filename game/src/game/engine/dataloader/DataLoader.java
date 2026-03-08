@@ -40,18 +40,23 @@ public class DataLoader {
 			switch(cardData[0]) {
 			case "SWAPPER" : 
 				cardList.add(new SwapperCard(cardData[1], cardData[2], Integer.parseInt(cardData[3])));
+				// SwapperCard(String name, String description, int rarity)
 				break;
 			case "SHIELD" :
 				cardList.add(new ShieldCard(cardData[1], cardData[2], Integer.parseInt(cardData[3])));
+				// ShieldCard(String name, String description, int rarity)
 				break;
 			case "ENERGYSTEAL" :
 				cardList.add(new EnergyStealCard(cardData[1], cardData[2], Integer.parseInt(cardData[3]), Integer.parseInt(cardData[4])));
+				// EnergyStealCard(String name, String description, int rarity, int energy)
 				break;
 			case "STARTOVER" :
 				cardList.add(new StartOverCard(cardData[1], cardData[2], Integer.parseInt(cardData[3]), cardData[4].equals("true")));
+				// StartOverCard(String name, String description, int rarity, boolean lucky)
 				break;
 			case "CONFUSION" :
 				cardList.add(new ConfusionCard(cardData[1], cardData[2], Integer.parseInt(cardData[3]), Integer.parseInt(cardData[4])));
+				// ConfusionCard(String name, String description, int rarity, int duration)
 				break;
 			}
 		}
@@ -78,10 +83,12 @@ public class DataLoader {
 				if(Integer.parseInt(cellData[1]) > 0) // It's ConveyorBelt
 					
 					cellList.add(new ConveyorBelt(cellData[0], Integer.parseInt(cellData[1])));
-
+					// ConveyorBelt(String name, int effect)
+				
 				else // It's ContaminationSock
 
 					cellList.add(new ContaminationSock(cellData[0], Integer.parseInt(cellData[1])));
+					// ContaminationSock(String name, int effect)
 			}
 		}
 		
@@ -104,15 +111,19 @@ public class DataLoader {
 			switch(monsterData[0]) {
 			case "DYNAMO" : 
 				monsterList.add(new Dynamo(monsterData[1], monsterData[2], Role.valueOf(monsterData[3]), Integer.parseInt(monsterData[4])));
+				// Dynamo(String name, String description, Role role, int energy)
 				break;
 			case "DASHER" :
 				monsterList.add(new Dasher(monsterData[1], monsterData[2], Role.valueOf(monsterData[3]), Integer.parseInt(monsterData[4])));
+				// Dasher(String name, String description, Role role, int energy)
 				break;
 			case "SCHEMER" :
 				monsterList.add(new Schemer(monsterData[1], monsterData[2], Role.valueOf(monsterData[3]), Integer.parseInt(monsterData[4])));
+				// Schemer(String name, String description, Role role, int energy)
 				break;
 			case "MULTITASKER" :
 				monsterList.add(new MultiTasker(monsterData[1], monsterData[2], Role.valueOf(monsterData[3]), Integer.parseInt(monsterData[4])));
+				// MultiTasker(String name, String description, Role role, int energy)
 				break;
 			}
 			
