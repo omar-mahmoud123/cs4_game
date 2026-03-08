@@ -3,15 +3,16 @@ import game.engine.Role;
 import game.engine.Constants;
 
 public abstract class Monster implements Comparable<Monster> {
-	String name; // READ ONLY
-	String description; // READ ONLY
+	private String name; // READ ONLY
+	private String description; // READ ONLY
 	Role role;
 	Role originalRole; // READ ONLY
-	int energy;
-	int position;
-	boolean frozen;
-	boolean shielded;
-	int confusionTurns;
+	private int energy;
+	private int position;
+	private boolean frozen;
+	private boolean shielded;
+	private int confusionTurns;
+	
 	public Monster(String name, String description, Role originalRole, int energy) {
 		this.name = name;
 		this.description = description;
@@ -94,4 +95,5 @@ public abstract class Monster implements Comparable<Monster> {
 	public void setConfusionTurns(int confusionTurns) {
 		this.confusionTurns = confusionTurns;
 	}
+	
 }
