@@ -23,9 +23,9 @@ import game.engine.monsters.MultiTasker;
 import game.engine.monsters.Schemer;
 
 public class DataLoader {
-	public static final String CARDS_FILE_NAME = "cards.csv";
-	public static final String CELLS_FILE_NAME = "cells.csv";
-	public static final String MONSTER_FILE_NAME = "monsters.csv";
+	private static final String CARDS_FILE_NAME = "cards.csv";
+	private static final String CELLS_FILE_NAME = "cells.csv";
+	private static final String MONSTERS_FILE_NAME = "monsters.csv";
 
 	
 	public static ArrayList<Card> readCards() throws IOException {
@@ -101,7 +101,7 @@ public class DataLoader {
 
 	public static ArrayList<Monster> readMonsters() throws IOException {
 			
-		BufferedReader reader = new BufferedReader(new FileReader(MONSTER_FILE_NAME));
+		BufferedReader reader = new BufferedReader(new FileReader(MONSTERS_FILE_NAME));
 	
 		String line;
 		ArrayList<Monster> monsterList = new ArrayList<Monster>();

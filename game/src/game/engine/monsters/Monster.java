@@ -57,9 +57,7 @@ public abstract class Monster implements Comparable<Monster> {
 	}
 
 	public void setEnergy(int energy) {
-		if(energy >= Constants.MIN_ENERGY) {
-			this.energy = energy;
-		}
+		this.energy = Math.max(energy, Constants.MIN_ENERGY);
 	}
 
 	public int getPosition() {
@@ -67,9 +65,11 @@ public abstract class Monster implements Comparable<Monster> {
 	}
 
 	public void setPosition(int position) {
-		if(position >= Constants.STARTING_POSITION && position <= Constants.WINNING_POSITION) {
-			this.position = position;
-		}
+	    if (position < Constants.STARTING_POSITION) {
+	        this.position = Constants.STARTING_POSITION;
+	    } else {
+	        this.position = position % Constants.BOARD_SIZE;
+	    }
 	}
 
 	public boolean isFrozen() {
