@@ -57,8 +57,8 @@ public class Game {
 	}
 	
 	// randomly returns a monster based on the given role
-	private static Monster selectRandomMonsterByRole(Role role) throws IOException {
-		ArrayList<Monster> monsterList = DataLoader.readMonsters();
+	private Monster selectRandomMonsterByRole(Role role){
+		ArrayList<Monster> monsterList = getAllMonsters();
 		
 		ArrayList<Monster> roleMonsterList = new ArrayList<Monster>();
 		for(int i = 0; i < monsterList.size(); i++) {
