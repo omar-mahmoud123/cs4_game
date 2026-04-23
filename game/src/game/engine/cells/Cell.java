@@ -21,4 +21,14 @@ public class Cell{
 	public void setMonster(Monster monster) {
 		this.monster = monster;
 	}
+	
+	public boolean isOccupied() {
+		if (this.getMonster()==null) {
+			return false;
+		}
+		return true;
+	}
+	
+
+	
 }

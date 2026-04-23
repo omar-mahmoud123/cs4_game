@@ -1,4 +1,5 @@
 package game.engine.monsters;
+import game.engine.Constants;
 import game.engine.Role;
 
 public class Dasher extends Monster{
@@ -11,10 +12,29 @@ public class Dasher extends Monster{
 	
 	public int getMomentumTurns() {
 		return momentumTurns;
-	}
-
+	}   
+	
+	
 	public void setMomentumTurns(int momentumTurns) {
 		this.momentumTurns = momentumTurns;
 	}
 	
+	public void move(int distance) {
+		int momentumTurns = getMomentumTurns();
+		if ( momentumTurns>0) {
+			super.move(distance*3);
+			setMomentumTurns(momentumTurns - 1);
+
+		}else {
+			super.move(distance*2);
+		}
+		
+	}
+	
+	public void executePowerupEffect(Monster opponentMonster) {
+		setMomentumTurns(3);
+	}
+	
 }
+	
+

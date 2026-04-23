@@ -1,5 +1,8 @@
 package game.engine.cards;
 
+import game.engine.Role;
+import game.engine.monsters.Monster;
+
 public abstract class Card {
 
     private final String name;
@@ -29,5 +32,19 @@ public abstract class Card {
     public boolean isLucky() {
         return lucky;
     }
+    
+	public abstract void performAction(Monster player, Monster opponent) ;
+//	public void performAction(Monster player, Monster opponent) {
+//		Role p = player.getRole();
+//		Role o = opponent.getRole();
+//		
+//		player.setRole(o);
+//		opponent.setRole(p);
+//
+//	}
+	
+	
+	
+
     
 }

@@ -1,5 +1,7 @@
 package game.engine.cards;
 
+import game.engine.monsters.Monster;
+
 public class EnergyStealCard extends Card {
     private final int energy;
 
@@ -12,4 +14,20 @@ public class EnergyStealCard extends Card {
         return energy;
     }
     
+    public void performAction(Monster player, Monster opponent) {
+    	int p =player.getEnergy();
+    	int o =opponent.getEnergy();
+
+    	if(o>energy) {
+    		opponent.alterEnergy(-energy);
+    		player.setEnergy(energy+p);
+    	}else {
+    		opponent.setEnergy(0);
+    		player.setEnergy(o+p);
+    		
+    	}
+    }
+    
+    // Modifies canister energy of both the player and opponent. , we didnt do that yet
+
 }
