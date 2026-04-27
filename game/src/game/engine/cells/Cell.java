@@ -1,7 +1,7 @@
 package game.engine.cells;
 import game.engine.monsters.Monster;
 
-public class Cell{
+public abstract class Cell{
 	private final String name;
 	private Monster monster;
 	
@@ -29,6 +29,7 @@ public class Cell{
 		return true;
 	}
 	
+	public abstract void onLand(Monster landingMonster, Monster opponentMonster);
 
 	
 }

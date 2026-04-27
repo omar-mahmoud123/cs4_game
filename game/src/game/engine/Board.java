@@ -42,6 +42,9 @@ public class Board {
 		Board.originalCards = readCards;
 	}
 	
-	
+	public static Card drawCard() {
+		Card c = cards.remove(0);
+		return c;
+	}
 
 }
