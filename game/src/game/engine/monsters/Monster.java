@@ -18,7 +18,6 @@ public abstract class Monster implements Comparable<Monster> {
 		this.description = description;
 		this.originalRole = originalRole;
 		this.energy = energy;
-		
 		this.role = originalRole;
 		this.position = 0;
 		this.confusionTurns = 0;
@@ -57,9 +56,7 @@ public abstract class Monster implements Comparable<Monster> {
 	}
 
 	public void setEnergy(int energy) {
-		if(energy >= Constants.MIN_ENERGY) {
-			this.energy = energy;
-		}
+		this.energy = Math.max(energy, Constants.MIN_ENERGY);
 	}
 
 	public int getPosition() {
@@ -67,9 +64,11 @@ public abstract class Monster implements Comparable<Monster> {
 	}
 
 	public void setPosition(int position) {
-		if(position >= Constants.STARTING_POSITION && position <= Constants.WINNING_POSITION) {
-			this.position = position;
-		}
+	    if (position < Constants.STARTING_POSITION) {
+	        this.position = Constants.STARTING_POSITION;
+	    } else {
+	        this.position = position % Constants.BOARD_SIZE;
+	    }
 	}
 
 	public boolean isFrozen() {
@@ -96,4 +95,42 @@ public abstract class Monster implements Comparable<Monster> {
 		this.confusionTurns = confusionTurns;
 	}
 	
+	abstract void executePowerupEffect(Monster opponentMonster);
+	
+	boolean isConfused() {
+		return (getConfusionTurns()!=0);
+	}
+	
+	public void move(int distance) {
+		if(!isFrozen()) {
+			position=getPosition();
+			setPosition(position+distance);
+		}
+		
+		this.decrementConfusion();
+	}
+	
+	public final void alterEnergy(int energy) {
+		if(isShielded()&&energy<0) {
+			setShielded(false);
+		}else {
+			int e=getEnergy();
+			setEnergy(e+energy);
+		}
+	}
+	
+	public void decrementConfusion() {
+		int c=getConfusionTurns();
+		if (c>1) {
+			setConfusionTurns(c-1);
+		}else {
+		if (c==0) {
+			setRole(getOriginalRole());
+		}
+		}
+	
+	}
+	
+	
 }
+

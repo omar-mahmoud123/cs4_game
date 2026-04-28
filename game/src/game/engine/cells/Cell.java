@@ -1,7 +1,7 @@
 package game.engine.cells;
 import game.engine.monsters.Monster;
 
-public class Cell{
+public abstract class Cell{
 	private final String name;
 	private Monster monster;
 	
@@ -21,4 +21,15 @@ public class Cell{
 	public void setMonster(Monster monster) {
 		this.monster = monster;
 	}
+	
+	public boolean isOccupied() {
+		if (this.getMonster()==null) {
+			return false;
+		}
+		return true;
+	}
+	
+	public abstract void onLand(Monster landingMonster, Monster opponentMonster);
+
+	
 }
