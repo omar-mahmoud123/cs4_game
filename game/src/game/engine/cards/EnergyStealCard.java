@@ -1,8 +1,9 @@
 package game.engine.cards;
 
+import game.engine.interfaces.CanisterModifier;
 import game.engine.monsters.Monster;
 
-public class EnergyStealCard extends Card {
+public class EnergyStealCard extends Card implements CanisterModifier{
     private final int energy;
 
     public EnergyStealCard(String name, String description, int rarity, int energy) {
@@ -27,6 +28,11 @@ public class EnergyStealCard extends Card {
     		
     	}
     }
+
+	public void modifyCanisterEnergy(Monster monster, int canisterValue) {
+		// TODO Auto-generated method stub
+		
+	}
     
     // Modifies canister energy of both the player and opponent. , we didnt do that yet
 

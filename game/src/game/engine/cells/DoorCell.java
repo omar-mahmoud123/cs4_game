@@ -44,15 +44,22 @@ public class DoorCell extends Cell implements CanisterModifier{
 		if(!isActivated()) {
 			Role r = landingMonster.getRole();
 			ArrayList<Monster> stationedList = Board.getStationedMonsters();
-			modifyCanisterEnergy(landingMonster,this.getEnergy());
-			for(int i = 0; i< stationedList.size();i++) {
-				if(r == stationedList.get(i).getRole()) {
-					modifyCanisterEnergy(stationedList.get(i),this.getEnergy());
+			if(this.getRole()==r) {
+				modifyCanisterEnergy(landingMonster,this.getEnergy());
+				for(int i = 0; i< stationedList.size();i++) {
+					if(r == stationedList.get(i).getRole()) {
+						modifyCanisterEnergy(stationedList.get(i),this.getEnergy());
+					}
+				}
+			}else {
+				modifyCanisterEnergy(landingMonster,-this.getEnergy());
+				for(int i = 0; i< stationedList.size();i++) {
+					if(r == stationedList.get(i).getRole()) {
+						modifyCanisterEnergy(stationedList.get(i),-this.getEnergy());
+					}
 				}
 			}
-			
 		}
 		
 	}
-	
 }
