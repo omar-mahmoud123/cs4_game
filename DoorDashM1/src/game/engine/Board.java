@@ -18,6 +18,8 @@ public class Board {
 		stationedMonsters = new ArrayList<Monster>();
 		originalCards = readCards;
 		cards = new ArrayList<Card>();
+		this.setCardsByRarity();
+		Board.reloadCards();
 	}
 	
 	public Cell[][] getBoardCells() {
@@ -61,7 +63,7 @@ public class Board {
 		this.boardCells[index2d[0]][index2d[1]] = cell;
 	}
 	
-	void initializeBoard(ArrayList<Cell> specialCells) {
+	public void initializeBoard(ArrayList<Cell> specialCells) {
 		int stationedMonsterIndex = 0;
 		for(int i = 0; i < 100; i++) {
 			int[] index2d = indexToRowCol(i);
@@ -128,7 +130,7 @@ public class Board {
 		Board.originalCards = newList;
 	}
 	
-	static void reloadCards() {
+	public static void reloadCards() {
 		ArrayList<Card> newList = new ArrayList<Card>();
 		for(int i = 0; i < Board.originalCards.size(); i++) 
 			newList.add(Board.originalCards.get(i));
