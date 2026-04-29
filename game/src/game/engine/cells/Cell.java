@@ -1,35 +1,36 @@
 package game.engine.cells;
+
 import game.engine.monsters.Monster;
 
-public abstract class Cell{
-	private final String name;
-	private Monster monster;
+public class Cell {
+	private String name;
+	private Monster monster; 
 	
-	public Cell (String name) {
+	public Cell(String name) {
 		this.name = name;
-		monster = null;
+		this.monster = null;
 	}
-	
+
 	public String getName() {
-		return this.name;
+		return name;
 	}
 	
 	public Monster getMonster() {
-		return this.monster;
+		return monster;
 	}
-	
+
 	public void setMonster(Monster monster) {
 		this.monster = monster;
 	}
 	
 	public boolean isOccupied() {
-		if (this.getMonster()==null) {
-			return false;
-		}
-		return true;
+		if(getMonster() != null) 
+			return true;
+		return false;
 	}
 	
-	public abstract void onLand(Monster landingMonster, Monster opponentMonster);
+	public void onLand(Monster landingMonster, Monster opponentMonster) {
+		this.setMonster(landingMonster);
+	}
 
-	
 }

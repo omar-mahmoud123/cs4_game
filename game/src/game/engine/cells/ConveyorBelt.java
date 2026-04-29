@@ -1,8 +1,15 @@
 package game.engine.cells;
 
-public class ConveyorBelt extends TransportCell{
-	public ConveyorBelt(String name, int effect){
-		super(name, Math.abs(effect));
+import game.engine.monsters.Monster;
+
+public class ConveyorBelt extends TransportCell {
+
+	public ConveyorBelt(String name, int effect) {
+		super(name, effect);
+	}
+
+	@Override
+	public void onLand(Monster landingMonster, Monster opponentMonster) {
+		landingMonster.setPosition(landingMonster.getPosition() + this.getEffect());
 	}
 }
-

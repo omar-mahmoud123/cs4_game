@@ -1,15 +1,21 @@
 package game.engine.cells;
 
-public abstract class TransportCell extends Cell{
-	private final int effect;
-	
-	public TransportCell (String name,int effect) {
+import game.engine.Constants;
+import game.engine.monsters.Monster;
+
+public abstract class TransportCell extends Cell {
+	private int effect;
+
+	public TransportCell(String name, int effect) {
 		super(name);
 		this.effect = effect;
 	}
-	
+
 	public int getEffect() {
-		return this.effect;
+		return effect;
 	}
 	
+	public void transport(Monster monster) {
+		monster.setPosition(Math.max(Constants.STARTING_POSITION, monster.getPosition() + this.getEffect()));
+	}
 }
