@@ -1,6 +1,5 @@
 package game.engine;
 
-
 import java.util.ArrayList;
 
 import game.engine.cards.Card;
@@ -120,7 +119,7 @@ public class Board {
 		ArrayList<Card> newList = new ArrayList<Card>();
 		
 		while(!Board.originalCards.isEmpty()) {
-			Card card = Board.originalCards.removeFirst();
+			Card card = Board.originalCards.remove(0);
 			
 			for(int i = 0; i < card.getRarity(); i++)
 				newList.add(card);
@@ -140,11 +139,31 @@ public class Board {
 	public static Card drawCard() {
 		if(Board.cards.isEmpty()) Board.reloadCards();
 		
-		return Board.cards.removeFirst();
+		return Board.cards.remove(0);
 	}
 	
-	
+	public void moveMonster(Monster currentMonster, int roll, Monster opponentMonster) throws InvalidMoveException{
+		currentMonster.move(roll);
+		if(currentMonster.getPosition() == opponentMonster.getPosition()) {
+			currentMonster.move(-roll);
+			throw new InvalidMoveException();
+		}
+		currentMonster.decrementConfusion();
+		opponentMonster.decrementConfusion();
+		this.getCell(currentMonster.getPosition()).onLand(currentMonster, opponentMonster);
+		updateMonsterPositions(currentMonster,opponentMonster);
+	}
+	private void updateMonsterPositions(Monster player, Monster opponent) {
+		for(int i = Constants.STARTING_POSITION;i<=Constants.WINNING_POSITION;i++) {
+			int[] rowCol = indexToRowCol(i);
+			boardCells[rowCol[0]][rowCol[1]].setMonster(null);
+		}
+		int[] playerPos = indexToRowCol(player.getPosition());
+		int[] opponentPos = indexToRowCol(opponent.getPosition());
+		boardCells[playerPos[0]][playerPos[1]].setMonster(player);
+		boardCells[opponentPos[0]][opponentPos[1]].setMonster(opponent);
 
+	}
 
 	
 }
