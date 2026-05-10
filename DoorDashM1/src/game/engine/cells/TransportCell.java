@@ -18,4 +18,9 @@ public abstract class TransportCell extends Cell {
 	public void transport(Monster monster) {
 		monster.setPosition(Math.max(Constants.STARTING_POSITION, monster.getPosition() + this.getEffect()));
 	}
+	
+	public void onLand(Monster landingMonster, Monster opponentMonster) {
+		super.onLand(landingMonster, opponentMonster);
+		this.transport(landingMonster);
+	}
 }

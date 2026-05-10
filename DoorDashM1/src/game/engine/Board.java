@@ -55,25 +55,12 @@ public class Board {
 	
 	private Cell getCell(int index) {
 		int[] index2d = indexToRowCol(index);
-		return this.getBoardCells()[index2d[0]][index2d[1]];
+		return getBoardCells()[index2d[0]][index2d[1]];
 	}
 	
 	private void setCell(int index, Cell cell) {
 		int[] index2d = indexToRowCol(index);
 		this.boardCells[index2d[0]][index2d[1]] = cell;
-	}
-	
-	private void setCardsByRarity() {
-		ArrayList<Card> newList = new ArrayList<Card>();
-		
-		while(!Board.originalCards.isEmpty()) {
-			Card card = Board.originalCards.remove(0);
-			
-			for(int i = 0; i < card.getRarity(); i++)
-				newList.add(card);
-		}
-		
-		Board.originalCards = newList;
 	}
 	
 	public void initializeBoard(ArrayList<Cell> specialCells) {
@@ -109,14 +96,12 @@ public class Board {
 				return arr.remove(i);
 		return null;
 	}
-	
 	private Cell firstSocksCell(ArrayList<Cell> arr) {
 		for(int i = 0; i < arr.size(); i++) 
 			if(arr.get(i) instanceof ContaminationSock) 
 				return arr.remove(i);
 		return null;
 	}
-	
 	private Cell firstBeltCell(ArrayList<Cell> arr) {
 		for(int i = 0; i < arr.size(); i++) 
 			if(arr.get(i) instanceof ConveyorBelt) 
@@ -131,64 +116,45 @@ public class Board {
 		return false;
 	}
 	
+	
+	private void setCardsByRarity() {
+		ArrayList<Card> newList = new ArrayList<Card>();
+		
+		while(!Board.originalCards.isEmpty()) {
+			Card card = Board.originalCards.remove(0);
+			
+			for(int i = 0; i < card.getRarity(); i++)
+				newList.add(card);
+		}
+		
+		Board.originalCards = newList;
+	}
+	
 	public static void reloadCards() {
-		ArrayList<Integer> numbersOrdered = new ArrayList<Integer>();
-		for(int i = 0; i < 25; i++) {
-			numbersOrdered.add(i);
-		}
-		ArrayList<Card> cardsShuffled = new ArrayList<Card>();
-		while(!numbersOrdered.isEmpty()) {
-			int randomNum = (int)(Math.random() * (numbersOrdered.size()));
-			int x = numbersOrdered.remove(randomNum);
-			cardsShuffled.add(Board.getOriginalCards().get(x));
-		}
-		Board.setCards(cardsShuffled);
+		ArrayList<Card> newList = new ArrayList<Card>();
+		for(int i = 0; i < Board.originalCards.size(); i++) 
+			newList.add(Board.originalCards.get(i));
+		
+		Board.cards = newList;
 	}
 	
 	public static Card drawCard() {
-		if(cards.isEmpty()) {
-			Board.reloadCards();
-		}
+		if(Board.cards.isEmpty()) Board.reloadCards();
 		
-		return Board.getCards().remove(0);
+		return Board.cards.remove(0);
 	}
 	
-//	public void moveMonster(Monster currentMonster, int roll, Monster opponentMonster) throws InvalidMoveException{
-//		currentMonster.move(roll);
-//		if(currentMonster.getPosition() == opponentMonster.getPosition()) {
-//			currentMonster.move(-roll);
-//			throw new InvalidMoveException();
-//		}
-//		currentMonster.decrementConfusion();
-//		opponentMonster.decrementConfusion();
-//		this.getCell(currentMonster.getPosition()).onLand(currentMonster, opponentMonster);
-//		updateMonsterPositions(currentMonster,opponentMonster);
-//	}
-	
-	public void moveMonster(Monster currentMonster, int roll, Monster opponentMonster) throws InvalidMoveException {
-	    // 1. Save the old position
-	    int oldPosition = currentMonster.getPosition();
-
-	    // 2. Move by the dice roll
-	    currentMonster.move(roll);
-
-	    // 3. Trigger the landed cell's effect
-	    this.getCell(currentMonster.getPosition()).onLand(currentMonster, opponentMonster);
-
-	    // 4. Check for collision AFTER landing
-	    if(currentMonster.getPosition() == opponentMonster.getPosition()) {
-	        currentMonster.setPosition(oldPosition); // Revert accurately
-	        throw new InvalidMoveException();
-	    }
-
-	    // 5. Decrement confusion AFTER landing
-	    currentMonster.decrementConfusion();
-	    opponentMonster.decrementConfusion();
-
-	    // 6. Sync the board
-	    updateMonsterPositions(currentMonster, opponentMonster);
+	public void moveMonster(Monster currentMonster, int roll, Monster opponentMonster) throws InvalidMoveException{
+		currentMonster.move(roll);
+		if(currentMonster.getPosition() == opponentMonster.getPosition()) {
+			currentMonster.move(-roll);
+			throw new InvalidMoveException();
+		}
+		currentMonster.decrementConfusion();
+		opponentMonster.decrementConfusion();
+		this.getCell(currentMonster.getPosition()).onLand(currentMonster, opponentMonster);
+		updateMonsterPositions(currentMonster,opponentMonster);
 	}
-	
 	private void updateMonsterPositions(Monster player, Monster opponent) {
 		for(int i = Constants.STARTING_POSITION;i<=Constants.WINNING_POSITION;i++) {
 			int[] rowCol = indexToRowCol(i);
@@ -200,4 +166,6 @@ public class Board {
 		boardCells[opponentPos[0]][opponentPos[1]].setMonster(opponent);
 
 	}
+
+	
 }

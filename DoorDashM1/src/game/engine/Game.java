@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import game.engine.cells.Cell;
 import game.engine.dataloader.DataLoader;
+import game.engine.exceptions.InvalidMoveException;
 import game.engine.exceptions.OutOfEnergyException;
 import game.engine.monsters.*;
 
@@ -99,5 +100,13 @@ public class Game {
 		return null;
 	}
 	
-	
+	public void playTurn() throws InvalidMoveException{
+		if(current.isFrozen()) {
+			current.setFrozen(false);
+		}else {
+			int r = this.rollDice();
+			this.getBoard().moveMonster(this.getCurrent(), r, this.getCurrentOpponent());
+		}
+		this.switchTurn();
+	}
 }

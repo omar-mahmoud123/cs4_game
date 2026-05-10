@@ -104,7 +104,7 @@ public abstract class Monster implements Comparable<Monster> {
 	
 	// Should only be used when shield is respected
 	// alters by difference not sets like setEnergy
-	public void alterEnergy(int energy) {
+	public final void alterEnergy(int energy) {
 		if(this.isShielded() && energy < 0) {
 			this.setShielded(false);
 		}else {
