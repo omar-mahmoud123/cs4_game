@@ -1,0 +1,144 @@
+/* --- MAIN LAYOUT --- */
+.main-window {
+    -fx-background-color: #1E2128; /* Modern dark grey background */
+}
+
+.board-grid {
+    -fx-background-color: #2A2E38;
+    -fx-border-color: #4B5263;
+    -fx-border-width: 4px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0, 0, 5);
+}
+
+.side-panel {
+    -fx-background-color: #242830;
+    -fx-border-color: #16181D;
+    -fx-border-width: 0 0 0 2px;
+}
+
+/* --- STAT CARDS --- */
+.stat-card {
+    -fx-background-color: #2C313C;
+    -fx-background-radius: 10px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 3);
+}
+
+.header-label {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10 0;
+}
+
+.player-header { -fx-text-fill: #5DADE2; /* Blue */ }
+.opponent-header { -fx-text-fill: #E74C3C; /* Red */ }
+
+.data-label {
+    -fx-text-fill: #ABB2BF;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", "Arial";
+}
+
+.energy-text {
+    -fx-text-fill: #F1C40F; /* Gold for energy */
+    -fx-font-weight: bold;
+}
+
+.status-text {
+    -fx-text-fill: #E67E22; /* Orange for status */
+    -fx-font-style: italic;
+}
+
+/* --- CONTROLS ZONE --- */
+.control-zone {
+    -fx-background-color: #2C313C;
+    -fx-background-radius: 10px;
+    -fx-padding: 20px;
+}
+
+.turn-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.dice-result-label {
+    -fx-text-fill: #98C379; /* Soft green */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.modern-checkbox {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+}
+
+/* --- THE BUTTON --- */
+.primary-button {
+    -fx-background-color: linear-gradient(to bottom, #5DADE2, #2E86C1);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25px;
+    -fx-padding: 12px 30px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(46, 134, 193, 0.5), 10, 0, 0, 3);
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #85C1E9, #3498DB);
+}
+
+.primary-button:pressed {
+    -fx-background-color: #21618C;
+    -fx-translate-y: 2px; /* Physical press effect */
+    -fx-effect: none; /* Remove shadow on press */
+}
+
+/* --- EVENT LOG --- */
+.log-zone {
+    -fx-background-color: #1E2128;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-border-color: #4B5263;
+    -fx-border-radius: 8px;
+}
+
+.log-header {
+    -fx-text-fill: #98C379;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.log-text {
+    -fx-text-fill: #E5C07B;
+    -fx-font-size: 14px;
+}
+/* --- BOARD CELLS --- */
+.board-cell {
+    -fx-border-color: #1E2128;
+    -fx-border-width: 2px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+/* Beautiful Linear Gradients for 3D Tile Effect */
+.door-cell { -fx-background-color: linear-gradient(to bottom right, #5DADE2, #2980B9); }
+.exhausted-door { -fx-background-color: linear-gradient(to bottom right, #7F8C8D, #34495E); }
+.monster-cell { -fx-background-color: linear-gradient(to bottom right, #9B59B6, #8E44AD); }
+.card-cell { -fx-background-color: linear-gradient(to bottom right, #F1948A, #E74C3C); }
+.conveyor-cell { -fx-background-color: linear-gradient(to bottom right, #58D68D, #27AE60); }
+.sock-cell { -fx-background-color: linear-gradient(to bottom right, #F5B041, #D68910); }
+.normal-cell { -fx-background-color: linear-gradient(to bottom right, #3B4252, #2C313C); }
+
+/* Make the text on the cells white and readable */
+.cell-text {
+    -fx-fill: white;
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+    -fx-text-alignment: center;
+}

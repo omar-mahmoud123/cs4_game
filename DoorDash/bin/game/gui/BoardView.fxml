@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="main-window" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.BoardController">
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+         <GridPane fx:id="boardGrid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="board-grid">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+                <ColumnConstraints percentWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+                <RowConstraints percentHeight="10.0" />
+            </rowConstraints>
+         </GridPane>
+      </VBox>
+   </center>
+   <right>
+      <VBox alignment="CENTER" prefWidth="550.0" spacing="20.0" styleClass="side-panel" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <VBox prefWidth="240.0" spacing="5.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                     <children>
+                     	<Label styleClass="header-label, player-header" text="PLAYER" />
+                        <Label fx:id="playerNameLabel" styleClass="data-label" text="Name: " wrapText="true" />
+                        <Label fx:id="playerOriginalRoleLabel" styleClass="data-label" text="Original Role: " wrapText="true" />
+                        <Label fx:id="playerCurrentRoleLabel" styleClass="data-label" text="Current Role: " wrapText="true" />
+                        <Label fx:id="playerTypeLabel" styleClass="data-label" text="Type: " wrapText="true" />
+                        <Label fx:id="playerCurrentEnergyLabel" styleClass="data-label, energy-text" text="Current Energy: " wrapText="true" />
+                        <Label fx:id="playerCurrentPositionLabel" styleClass="data-label" text="Current Position: " wrapText="true" />
+                        <Label fx:id="playerActiveStatusEffectsLabel" styleClass="data-label, status-text" text="Active Status Effects: " wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox prefWidth="240.0" spacing="5.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                     <children>
+                     	<Label styleClass="header-label, opponent-header" text="OPPONENT" />
+                        <Label fx:id="opponentNameLabel" styleClass="data-label" text="Name: " wrapText="true" />
+                        <Label fx:id="opponentOriginalRoleLabel" styleClass="data-label" text="Original Role: " wrapText="true" />
+                        <Label fx:id="opponentCurrentRoleLabel" styleClass="data-label" text="Current Role: " wrapText="true" />
+                        <Label fx:id="opponentTypeLabel" styleClass="data-label" text="Type: " wrapText="true" />
+                        <Label fx:id="opponentCurrentEnergyLabel" styleClass="data-label, energy-text" text="Current Energy: " wrapText="true" />
+                        <Label fx:id="opponentCurrentPositionLabel" styleClass="data-label" text="Current Position: " wrapText="true" />
+                        <Label fx:id="opponentActiveStatusEffectsLabel" styleClass="data-label, status-text" text="Active Status Effects: " wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            
+            <VBox alignment="CENTER" spacing="15.0" styleClass="control-zone">
+               <children>
+                  <Label fx:id="currentTurnLabel" styleClass="turn-label" text="Current Turn: " />
+                  <CheckBox fx:id="usePowerupCheckbox" mnemonicParsing="false" styleClass="modern-checkbox" text="Use Powerup" />
+                  <Button fx:id="rollDiceButton" mnemonicParsing="false" onAction="#onRollDiceClicked" styleClass="primary-button" text="ROLL DICE" />
+                  <Label fx:id="resultOfLastDiceRollLabel" styleClass="dice-result-label" text="Result of last dice roll: " />
+               </children>
+            </VBox>
+
+            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="log-zone" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label styleClass="log-header" text="GAME EVENTS:" />
+			      <Label fx:id="gameMessageLabel" prefHeight="80.0" styleClass="log-text" text="Welcome to the Floor!" wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
