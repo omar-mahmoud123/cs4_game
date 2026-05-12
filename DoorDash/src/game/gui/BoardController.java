@@ -163,6 +163,8 @@ import javafx.stage.Stage;
 	            }
 	
 	            Text label = new Text(cellText);
+	            label.setWrappingWidth(55);
+	            label.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
 	            cellView.getChildren().add(label);
 	
 	            cellUIs[i] = cellView;
