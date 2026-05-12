@@ -17,6 +17,7 @@ public class Game {
 	private Monster opponent;
 	private Monster current;
 	
+	private int lastRoll;
 	public Game(Role playerRole) throws IOException {
 		this.board = new Board(DataLoader.readCards());
 		
@@ -32,7 +33,9 @@ public class Game {
 		Board.setStationedMonsters(allMonsters);
 		board.initializeBoard(DataLoader.readCells());
 	}
-	
+	public int getLastRoll() {
+		return lastRoll;
+	}
 	public Board getBoard() {
 		return board;
 	}
@@ -71,7 +74,8 @@ public class Game {
 
 	private int rollDice() {
 		Random rand = new Random();
-		return rand.nextInt(6) + 1;
+	    this.lastRoll = rand.nextInt(6) + 1;
+	    return this.lastRoll;
 	}
 	
 	public void usePowerup() throws OutOfEnergyException {

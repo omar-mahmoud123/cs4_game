@@ -31,7 +31,7 @@ public final class Constants {
        ===================================================== */
 
     public static final int WINNING_ENERGY = 1000;
-    public static final int MIN_ENERGY = 0;
+    public static final int MIN_ENERGY = 1000;
 
     /* =====================================================
        ================== 5. CELL EFFECTS ==================
