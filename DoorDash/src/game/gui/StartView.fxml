@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.StartController">
    <children>
       <Label text="DoorDasH: Scare vs Laugh Touchdown" textAlignment="CENTER">
@@ -35,7 +34,7 @@
             </RadioButton>
          </children>
       </HBox>
-      <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Instructions" />
+      <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="&#10;How to Play DooR DasH: Scare vs Laugh&#10;&#10;🎯 The Objective&#10;&#10;Be the first monster to reach Boo's Door (Cell 99) with at least 1000 Energy to win the game!  &#10;&#10;⚡ Your Turn&#10;&#10;Powerup: Before rolling, you can spend 500 energy to activate your monster's unique Powerup.  &#10;&#10;Roll: Roll the 6-sided dice to navigate the 100-cell zigzag Floor.  &#10;&#10;Watch Out: You cannot land on the exact same space as your opponent. If your roll lands you on their cell, the move is invalid and you must roll again!  &#10;&#10;🚪 The Floor (Spaces)&#10;&#10;Doors (Light Blue): Landing on a door that matches your role (Scarer/Laugher) grants energy to your whole team. Landing on the wrong door drains your team's energy! Doors exhaust after one use.  &#10;&#10;Monster Cells (Dark Blue): Land on an ally for a free powerup. Land on a rival to swap energy if yours is lower!  &#10;&#10;Conveyor Belts (Green): Helpful transports that instantly push you forward.  &#10;&#10;Contamination Socks (Orange): Dangerous hazards! They throw you backward and drain 100 energy.  &#10;&#10;Card Cells (Pink): Draw game-changing cards like Shields, Energy Steals, Position Swaps, or Confusion." />
       <Button mnemonicParsing="false" onAction="#onStartButtonClicked" text="Start Game" />
    </children>
 </VBox>
