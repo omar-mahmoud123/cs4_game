@@ -24,14 +24,12 @@ public class StartController {
     private RadioButton scarerRadio;
     @FXML
     void onStartButtonClicked(ActionEvent event) {
-        // 1. Determine which role the user selected
         Role selectedRole = null;
         if (scarerRadio.isSelected()) {
             selectedRole = Role.SCARER;
         } else if (laugherRadio.isSelected()) {
             selectedRole = Role.LAUGHER;
         } else {
-            // Force the user to pick a side!
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Missing Selection");
             alert.setHeaderText(null);
@@ -40,22 +38,17 @@ public class StartController {
             return;
         }
 
-        // 2. Initialize the Game and load the Board View
         try {
-            // Instantiate the backend engine
             Game newGame = new Game(selectedRole);
 
-            // Load the FXML for the board
             FXMLLoader loader = new FXMLLoader(getClass().getResource("BoardView.fxml"));
             Parent root = loader.load();
 
-            // Get the controller and pass the engine to it
             BoardController boardController = loader.getController();
-            boardController.setGame(newGame); // This triggers drawBoard()!
+            boardController.setGame(newGame);
 
-            // Get the current window (Stage) and change the scene
             Stage window = (Stage) scarerRadio.getScene().getWindow();
-            window.setScene(new Scene(root, 1000, 700)); // Adjust width/height as needed
+            window.setScene(new Scene(root, 1000, 700));
             window.show();
 
         } catch (Exception e) {

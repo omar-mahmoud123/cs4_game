@@ -30,7 +30,7 @@ public final class Constants {
        =============== 3. GAME OBJECTIVES ==================
        ===================================================== */
 
-    public static final int WINNING_ENERGY = 100;
+    public static final int WINNING_ENERGY = 1000;
     public static final int MIN_ENERGY = 0;
 
     /* =====================================================
