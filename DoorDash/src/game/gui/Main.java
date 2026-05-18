@@ -11,7 +11,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
+        	// hat el view
             FXMLLoader loader = new FXMLLoader(getClass().getResource("StartView.fxml"));
+            // 7awel el view fxml le java
             Parent root = loader.load();
             
             Scene scene = new Scene(root, 600, 500);

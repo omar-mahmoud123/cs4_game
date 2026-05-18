@@ -35,10 +35,12 @@ public class StartController {
             alert.setHeaderText(null);
             alert.setContentText("Please select either SCARER or LAUGHER to begin!");
             alert.showAndWait();
+            // law ma7asalsh return hey7awel y load game with null role
             return;
         }
 
         try {
+        	// ne3mel new game engine
             Game newGame = new Game(selectedRole);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("BoardView.fxml"));
@@ -47,6 +49,7 @@ public class StartController {
             BoardController boardController = loader.getController();
             boardController.setGame(newGame);
 
+            // bengeeb el window 3shan n8ayarha lel view el tany
             Stage window = (Stage) scarerRadio.getScene().getWindow();
             window.setScene(new Scene(root, 1000, 700));
             window.show();

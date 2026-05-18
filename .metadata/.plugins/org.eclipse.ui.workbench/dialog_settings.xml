@@ -34,6 +34,7 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/Users/mac/Documents/Programming/Java/Team86.zip"/>
 			<item value="/Users/mac/Documents/Programming/86.zip"/>
 			<item value="/Users/mac/Desktop/86.zip"/>
 		</list>
