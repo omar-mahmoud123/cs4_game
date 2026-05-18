@@ -51,7 +51,7 @@ public class StartController {
 
             // bengeeb el window 3shan n8ayarha lel view el tany
             Stage window = (Stage) scarerRadio.getScene().getWindow();
-            window.setScene(new Scene(root, 1000, 700));
+            window.setScene(new Scene(root, 1250, 700));
             window.show();
 
         } catch (Exception e) {
